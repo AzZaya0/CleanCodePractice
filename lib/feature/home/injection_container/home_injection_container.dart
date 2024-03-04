@@ -1,9 +1,10 @@
-import 'package:kamyogya_intern_task/feature/home/data/repository/home_repository_impl.dart';
-import 'package:kamyogya_intern_task/feature/home/data/source/remote_home_repo.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/repository/home_repo.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/usecases/home_usecase.dart';
+
 
 import '../../../injection_container/injection_container.dart';
+import '../data/repository/home_repository_impl.dart';
+import '../data/source/remote_home_repo.dart';
+import '../domain/repository/home_repo.dart';
+import '../domain/usecases/home_usecase.dart';
 import '../presentation/bloc/home_bloc.dart';
 
 class HomeInjectionContainer {

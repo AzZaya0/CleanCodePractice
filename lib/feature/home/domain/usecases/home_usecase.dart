@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:kamyogya_intern_task/core/error/failure.dart';
-import 'package:kamyogya_intern_task/core/usecases/usecase.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/repository/home_repo.dart';
+
+import '../../../../core/error/failure.dart';
+import '../../../../core/usecases/usecase.dart';
+import '../entity/home_entity.dart';
+import '../repository/home_repo.dart';
 
 class HomeUseCase extends UseCase<HomeDataEntity, ApiParams> {
   IHomeRepository homeRepository;

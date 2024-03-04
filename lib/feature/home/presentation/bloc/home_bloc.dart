@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/usecases/home_usecase.dart';
 
 import '../../../../configs/routes/global_key.dart';
 import '../../../../configs/routes/route.dart';
+import '../../domain/entity/home_entity.dart';
+import '../../domain/usecases/home_usecase.dart';
 import 'home_event.dart';
 import 'home_state.dart';
 

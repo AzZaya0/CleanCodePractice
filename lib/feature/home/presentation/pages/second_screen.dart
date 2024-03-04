@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kamyogya_intern_task/core/constants/app_color.dart';
-import 'package:kamyogya_intern_task/feature/home/data/model/home_data_model.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
-import 'package:kamyogya_intern_task/feature/home/presentation/bloc/home_bloc.dart';
 
+import '../../../../core/constants/app_color.dart';
+import '../../domain/entity/home_entity.dart';
+import '../bloc/home_bloc.dart';
 import '../bloc/home_state.dart';
 
 class SecondPage extends StatelessWidget {

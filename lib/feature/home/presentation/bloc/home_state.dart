@@ -1,9 +1,10 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:equatable/equatable.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
+
 
 import '../../data/model/home_data_model.dart';
+import '../../domain/entity/home_entity.dart';
 
 abstract class HomeState extends Equatable {
   @override

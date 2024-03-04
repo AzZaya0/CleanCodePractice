@@ -1,9 +1,10 @@
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:kamyogya_intern_task/core/error/failure.dart';
-import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
 
+
+import '../../../../core/error/failure.dart';
+import '../../domain/entity/home_entity.dart';
 import '../model/home_data_model.dart';
 
 class RemoteHomeRepo {
