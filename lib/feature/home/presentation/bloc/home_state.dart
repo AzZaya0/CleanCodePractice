@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:equatable/equatable.dart';
+import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
 
 import '../../data/model/home_data_model.dart';
 
@@ -12,15 +13,16 @@ abstract class HomeState extends Equatable {
 class HomeInitState extends HomeState {}
 
 class HomeLoadingState extends HomeState {}
+class HomeErrorState extends HomeState {}
 
 class HomeLoadedState extends HomeState {
   int itemCount;
-  final HomeDataModel homeDataModel;
+  final HomeDataEntity homeDataEntity;
 
   HomeLoadedState({
     required this.itemCount,
-    required this.homeDataModel,
+    required this.homeDataEntity,
   });
   @override
-  List<Object?> get props => [homeDataModel,itemCount];
+  List<Object?> get props => [homeDataEntity, itemCount];
 }

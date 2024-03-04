@@ -4,11 +4,13 @@
 
 import 'dart:convert';
 
+import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
+
 HomeDataModel homeDataModelFromJson(String str) => HomeDataModel.fromJson(json.decode(str));
 
 String homeDataModelToJson(HomeDataModel data) => json.encode(data.toJson());
 
-class HomeDataModel {
+class HomeDataModel extends HomeDataEntity {
     String? message;
     Data? data;
 

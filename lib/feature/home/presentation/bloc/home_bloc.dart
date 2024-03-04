@@ -1,37 +1,38 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
+import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
+import 'package:kamyogya_intern_task/feature/home/domain/usecases/home_usecase.dart';
 
 import '../../../../configs/routes/global_key.dart';
 import '../../../../configs/routes/route.dart';
-import '../../domain/reporitory/home_repo.dart';
 import 'home_event.dart';
 import 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeRepository homeRepository;
-  HomeBloc(
-    this.homeRepository,
-  ) : super(HomeInitState()) {
+  HomeUseCase homeUseCase;
+  HomeBloc({
+    required this.homeUseCase,
+  }) : super(HomeInitState()) {
     on<GetHomeData>(getHomeData);
   }
 
   FutureOr<void> getHomeData(GetHomeData event, Emitter<HomeState> emit) async {
     try {
       emit(HomeLoadingState());
-      var data = await homeRepository.requestHomeData(event.apiUrl);
-      if (data != null) {
+      HomeDataEntity? entity;
+      var data = await homeUseCase(ApiParams(apiFromTextBox: event.apiUrl));
+      data.fold((l) => left(emit(HomeErrorState())), (r) {
         gNavigator?.pushNamed(Routes.secondPage);
-        // emit(HomeLoadedState(homeDataModel: data, itemCount: 1));
-        for (var i = 0; i < 4; i++) {
-          emit(HomeLoadedState(homeDataModel: data, itemCount: i));
-          await Future.delayed(const Duration(seconds: 3));
-        }
-      } else {
-        emit(HomeLoadingState());
+        entity = r;
+      });
+      for (var i = 0; i < 4; i++) {
+        emit(HomeLoadedState(homeDataEntity: entity!, itemCount: i));
+        await Future.delayed(const Duration(seconds: 3));
       }
     } catch (e) {
-      emit(HomeLoadingState());
+      emit(HomeErrorState());
     }
   }
 }

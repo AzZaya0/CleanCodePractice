@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kamyogya_intern_task/core/constants/app_color.dart';
 import 'package:kamyogya_intern_task/feature/home/data/model/home_data_model.dart';
+import 'package:kamyogya_intern_task/feature/home/domain/entity/home_entity.dart';
 import 'package:kamyogya_intern_task/feature/home/presentation/bloc/home_bloc.dart';
 
 import '../bloc/home_state.dart';
@@ -9,7 +10,7 @@ import '../bloc/home_state.dart';
 class SecondPage extends StatelessWidget {
   SecondPage({super.key});
 
-  HomeDataModel? homeDataModel;
+  HomeDataEntity? homeDataEntity;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +18,7 @@ class SecondPage extends StatelessWidget {
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoadedState) {
-              homeDataModel = state.homeDataModel;
+              homeDataEntity = state.homeDataEntity;
               return _mainSection(state.itemCount);
             } else {
               return const Center(
@@ -29,7 +30,7 @@ class SecondPage extends StatelessWidget {
   }
 
   ListView _mainSection(int itemCount) {
-    var homeMembersData = homeDataModel?.data?.members;
+    var homeMembersData = homeDataEntity?.data?.members;
     return ListView.builder(
       itemCount: itemCount,
       itemBuilder: (BuildContext context, int index) {

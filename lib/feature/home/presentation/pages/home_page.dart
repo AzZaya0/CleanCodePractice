@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
     return Center(
       child: ElevatedButton(
           onPressed: () {
-            context.read<HomeBloc>().add(GetHomeData(
+            BlocProvider.of<HomeBloc>(context).add(GetHomeData(
                 apiUrl:
                     'https://rotarydistrict3292.org.np/api/club/member/search'));
           },

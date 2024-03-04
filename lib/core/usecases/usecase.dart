@@ -1,3 +1,7 @@
+import 'package:dartz/dartz.dart';
+
+import '../error/failure.dart';
+
 abstract class UseCase<Type, Parms> {
-  Future<Type> call({Parms parms});
+  Future<Either<AppErrorHandler, Type>> call(Parms parms);
 }
